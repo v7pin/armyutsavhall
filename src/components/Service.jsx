@@ -10,43 +10,53 @@ import {
 
 const services = [
   {
-    icon: <FaGlassCheers className="text-3xl md:text-4xl text-yellow-300" />,
+    icon: (
+      <FaGlassCheers className="text-2xl sm:text-3xl md:text-4xl text-yellow-300" />
+    ),
     title: { en: "Royal Hall", hi: "शाही हॉल" },
     desc: {
-      en: "Spacious & decorated royal venue for your grand occasions.",
-      hi: "आपके भव्य कार्यक्रमों के लिए विशाल और सुसज्जित शाही हॉल।",
+      en: "Spacious royal venue for grand events.",
+      hi: "विशाल शाही आयोजन स्थल।",
     },
   },
   {
-    icon: <FaUtensils className="text-3xl md:text-4xl text-yellow-300" />,
+    icon: (
+      <FaUtensils className="text-2xl sm:text-3xl md:text-4xl text-yellow-300" />
+    ),
     title: { en: "Catering", hi: "कैटरिंग" },
     desc: {
-      en: "Delicious vegetarian & non-vegetarian cuisines.",
-      hi: "स्वादिष्ट शाकाहारी और मांसाहारी व्यंजन।",
+      en: "Veg & non-veg cuisines.",
+      hi: "स्वादिष्ट व्यंजन।",
     },
   },
   {
-    icon: <FaPalette className="text-3xl md:text-4xl text-yellow-300" />,
+    icon: (
+      <FaPalette className="text-2xl sm:text-3xl md:text-4xl text-yellow-300" />
+    ),
     title: { en: "Decor", hi: "सजावट" },
     desc: {
-      en: "Royal floral & thematic decoration options.",
-      hi: "शाही फूलों और थीम आधारित सजावट विकल्प।",
+      en: "Floral & theme decor.",
+      hi: "थीम और फूलों की सजावट।",
     },
   },
   {
-    icon: <FaCar className="text-3xl md:text-4xl text-yellow-300" />,
+    icon: (
+      <FaCar className="text-2xl sm:text-3xl md:text-4xl text-yellow-300" />
+    ),
     title: { en: "Parking", hi: "पार्किंग" },
     desc: {
-      en: "Spacious valet & self-parking available.",
-      hi: "विस्तृत वैलेट और स्वयं पार्किंग की सुविधा।",
+      en: "Valet & self-parking.",
+      hi: "वैलेट और स्वयं पार्किंग।",
     },
   },
   {
-    icon: <FaMusic className="text-3xl md:text-4xl text-yellow-300" />,
+    icon: (
+      <FaMusic className="text-2xl sm:text-3xl md:text-4xl text-yellow-300" />
+    ),
     title: { en: "DJ & Music", hi: "डीजे और संगीत" },
     desc: {
-      en: "Energetic DJ setup & sound system for lively vibes.",
-      hi: "जोश से भरपूर डीजे सेटअप और शानदार साउंड सिस्टम।",
+      en: "Lively DJ & sound setup.",
+      hi: "ऊर्जावान डीजे और साउंड।",
     },
   },
 ];
@@ -54,7 +64,6 @@ const services = [
 export default function Service({ language = "en" }) {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Listen for window resize
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
@@ -62,8 +71,8 @@ export default function Service({ language = "en" }) {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const circleSize = isMobile ? 130 : 180;
-  const radius = isMobile ? 170 : 200;
+  const circleSize = isMobile ? 110 : 180;
+  const radius = isMobile ? 130 : 200;
 
   return (
     <section
@@ -72,7 +81,7 @@ export default function Service({ language = "en" }) {
       style={{ fontFamily: "'Cinzel', serif" }}
     >
       <motion.h2
-        className="text-4xl md:text-5xl text-center font-bold mb-20 text-yellow-300 drop-shadow-lg"
+        className="text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-16 text-yellow-300 drop-shadow-lg"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -81,8 +90,7 @@ export default function Service({ language = "en" }) {
         {language === "en" ? "Our Royal Services" : "हमारी शाही सेवाएं"}
       </motion.h2>
 
-      {/* Circle Layout */}
-      <div className="relative w-full max-w-4xl mx-auto h-[520px] sm:h-[580px]">
+      <div className="relative w-full max-w-4xl mx-auto h-[480px] sm:h-[580px]">
         {services.map((service, index) => {
           const angle = (360 / services.length) * index;
           const x = radius * Math.cos((angle * Math.PI) / 180);
@@ -91,7 +99,7 @@ export default function Service({ language = "en" }) {
           return (
             <motion.div
               key={index}
-              className="absolute rounded-full bg-[#4a0f25]/60 border border-yellow-600 shadow-lg backdrop-blur-md p-4 sm:p-5 text-center flex flex-col items-center justify-center transition-all hover:scale-105 hover:shadow-2xl"
+              className="absolute rounded-full bg-[#4a0f25]/60 border border-yellow-600 shadow-lg backdrop-blur-md p-3 sm:p-5 text-center flex flex-col items-center justify-center transition-all hover:scale-105 hover:shadow-2xl"
               style={{
                 width: `${circleSize}px`,
                 height: `${circleSize}px`,
@@ -107,20 +115,19 @@ export default function Service({ language = "en" }) {
               }}
               viewport={{ once: true }}
             >
-              <div className="mb-1 sm:mb-2">{service.icon}</div>
-              <h3 className="text-sm sm:text-md font-semibold text-yellow-200">
+              <div className="mb-1">{service.icon}</div>
+              <h3 className="text-xs sm:text-sm font-semibold text-yellow-200">
                 {service.title[language]}
               </h3>
-              <p className="text-[11px] sm:text-xs text-yellow-100 mt-1 leading-tight text-center">
+              <p className="text-[10px] sm:text-xs text-yellow-100 mt-1 leading-tight text-center px-1">
                 {service.desc[language]}
               </p>
             </motion.div>
           );
         })}
 
-        {/* Center Circle */}
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full bg-yellow-300/20 backdrop-blur-lg border border-yellow-400 flex items-center justify-center shadow-inner text-yellow-200 font-bold text-center text-xs sm:text-sm px-3 sm:px-4"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] sm:w-[140px] sm:h-[140px] rounded-full bg-yellow-300/20 backdrop-blur-lg border border-yellow-400 flex items-center justify-center shadow-inner text-yellow-200 font-bold text-center text-[10px] sm:text-sm px-3 sm:px-4"
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 0.7 }}
