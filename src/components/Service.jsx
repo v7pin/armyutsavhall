@@ -62,7 +62,7 @@ export default function Service({ language = "en" }) {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const circleSize = isMobile ? 190 : 180;
+  const circleSize = isMobile ? 150 : 180;
   const radius = isMobile ? 170 : 200;
 
   return (
