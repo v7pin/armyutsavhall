@@ -95,6 +95,7 @@ export default function Gallery({ language = "en" }) {
       </div>
 
       <motion.h2
+        id="royale-gallery"
         className="text-4xl md:text-5xl text-center font-bold mb-10 text-yellow-300 drop-shadow-lg"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +112,7 @@ export default function Gallery({ language = "en" }) {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`text-sm md:text-base px-4 py-1.5 rounded-full transition-all duration-300 ${
+              className={`text-xs md:text-base px-4 py-1.5 rounded-full transition-all duration-300 ${
                 selectedCategory === cat
                   ? "bg-yellow-300 text-[#3b0a1e] font-bold shadow-lg"
                   : "text-yellow-100 hover:text-yellow-300"

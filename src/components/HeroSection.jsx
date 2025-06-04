@@ -40,6 +40,13 @@ export default function HeroSection({ translations }) {
     textShadow: "1px 1px 4px rgba(0,0,0,0.7)",
   };
 
+  const scrollToRoyaleGallery = () => {
+    const royaleGallery = document.getElementById("royale-gallery");
+    if (royaleGallery) {
+      royaleGallery.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -126,6 +133,7 @@ export default function HeroSection({ translations }) {
             {translations.callUs || (isHindi ? "संपर्क करें" : "Call Us")}
           </a>
           <button
+            onClick={scrollToRoyaleGallery}
             className="px-6 py-3 border border-yellow-400 text-yellow-300 font-medium rounded-full hover:bg-yellow-500 hover:text-black transition-all duration-300"
             style={{
               fontFamily: isHindi ? "'Yatra One', cursive" : "inherit",
