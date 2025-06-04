@@ -28,7 +28,7 @@ export default function MapSection({ language = "en" }) {
 
   return (
     <section
-      id="map"
+      id="contact"
       className="bg-gradient-to-br from-[#1e0613] to-[#34091a] py-24 px-6 text-yellow-100"
       style={{ fontFamily: "'Cinzel', serif" }}
     >

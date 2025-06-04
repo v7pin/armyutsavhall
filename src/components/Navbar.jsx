@@ -24,13 +24,15 @@ const Navbar = ({ lang, setLang }) => {
     <nav className="fixed top-0 left-0 w-full bg-[#3b0a1e]/90 text-yellow-200 shadow-lg z-50 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <img src={crownImg} alt="Army Utsav Hall" className="w-10 h-10" />
-          <h1
-            className="text-xl font-bold"
-            style={{ fontFamily: "'Cinzel', serif", color: "#FFD700" }}
-          >
-            Army Utsav Hall
-          </h1>
+          <a href="#home" className="flex items-center gap-2">
+            <img src={crownImg} alt="Army Utsav Hall" className="w-10 h-10" />
+            <h1
+              className="text-xl font-bold"
+              style={{ fontFamily: "'Cinzel', serif", color: "#FFD700" }}
+            >
+              Army Utsav Hall
+            </h1>
+          </a>
         </div>
 
         <ul className="hidden md:flex space-x-8 text-sm font-medium">

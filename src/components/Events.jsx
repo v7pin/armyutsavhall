@@ -77,6 +77,7 @@ const EventsSlider = ({ language = "en" }) => {
 
   return (
     <div
+      id="events"
       style={{
         background: "linear-gradient(to right, #1b0a10, #320c1d)",
         padding: "60px 20px",

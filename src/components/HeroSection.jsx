@@ -41,7 +41,10 @@ export default function HeroSection({ translations }) {
   };
 
   return (
-    <section className="relative h-screen w-full bg-[#3b0a1e] overflow-hidden">
+    <section
+      id="home"
+      className="relative h-screen w-full bg-[#3b0a1e] overflow-hidden"
+    >
       {/* Load luxury Hindi fonts */}
       <style>
         {`

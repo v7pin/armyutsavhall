@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaGlassCheers,
@@ -51,10 +52,23 @@ const services = [
 ];
 
 export default function Service({ language = "en" }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Listen for window resize
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const circleSize = isMobile ? 190 : 180;
+  const radius = isMobile ? 170 : 200;
+
   return (
     <section
       id="services"
-      className="relative bg-[#3b0a1e] bg-gradient-to-b from-[#2A0717] to-[#240715]  py-24 px-4 text-yellow-100"
+      className="relative bg-[#3b0a1e] bg-gradient-to-b from-[#2A0717] to-[#240715] py-24 px-4 text-yellow-100"
       style={{ fontFamily: "'Cinzel', serif" }}
     >
       <motion.h2
@@ -68,21 +82,21 @@ export default function Service({ language = "en" }) {
       </motion.h2>
 
       {/* Circle Layout */}
-      <div className="relative w-full max-w-4xl mx-auto h-[500px] sm:h-[550px]">
+      <div className="relative w-full max-w-4xl mx-auto h-[520px] sm:h-[580px]">
         {services.map((service, index) => {
           const angle = (360 / services.length) * index;
-          const radius = 200;
-
           const x = radius * Math.cos((angle * Math.PI) / 180);
           const y = radius * Math.sin((angle * Math.PI) / 180);
 
           return (
             <motion.div
               key={index}
-              className="absolute w-[180px] h-[180px] rounded-full bg-[#4a0f25]/60 border border-yellow-600 shadow-lg backdrop-blur-md p-5 text-center flex flex-col items-center justify-center transition-all hover:scale-105 hover:shadow-2xl"
+              className="absolute rounded-full bg-[#4a0f25]/60 border border-yellow-600 shadow-lg backdrop-blur-md p-4 sm:p-5 text-center flex flex-col items-center justify-center transition-all hover:scale-105 hover:shadow-2xl"
               style={{
-                left: `calc(50% + ${x}px - 90px)`,
-                top: `calc(50% + ${y}px - 90px)`,
+                width: `${circleSize}px`,
+                height: `${circleSize}px`,
+                left: `calc(50% + ${x}px - ${circleSize / 2}px)`,
+                top: `calc(50% + ${y}px - ${circleSize / 2}px)`,
               }}
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -93,11 +107,11 @@ export default function Service({ language = "en" }) {
               }}
               viewport={{ once: true }}
             >
-              <div className="mb-2">{service.icon}</div>
-              <h3 className="text-md font-semibold text-yellow-200">
+              <div className="mb-1 sm:mb-2">{service.icon}</div>
+              <h3 className="text-sm sm:text-md font-semibold text-yellow-200">
                 {service.title[language]}
               </h3>
-              <p className="text-xs text-yellow-100 mt-1 leading-tight">
+              <p className="text-[11px] sm:text-xs text-yellow-100 mt-1 leading-tight text-center">
                 {service.desc[language]}
               </p>
             </motion.div>
@@ -106,7 +120,7 @@ export default function Service({ language = "en" }) {
 
         {/* Center Circle */}
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] rounded-full bg-yellow-300/20 backdrop-blur-lg border border-yellow-400 flex items-center justify-center shadow-inner text-yellow-200 font-bold text-center text-sm px-4"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full bg-yellow-300/20 backdrop-blur-lg border border-yellow-400 flex items-center justify-center shadow-inner text-yellow-200 font-bold text-center text-xs sm:text-sm px-3 sm:px-4"
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 0.7 }}
