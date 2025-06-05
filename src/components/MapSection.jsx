@@ -79,10 +79,10 @@ export default function MapSection({ language = "en" }) {
               <Phone size={18} /> 089696 70080
             </a>
             <a
-              href="tel:09881052888"
+              href="tel:09690331047"
               className="flex items-center gap-2 hover:underline"
             >
-              <Phone size={18} /> 098810 52888
+              <Phone size={18} /> 0969033 1047
             </a>
           </div>
 
