@@ -5,69 +5,90 @@ import { useSwipeable } from "react-swipeable";
 
 const testimonials = [
   {
-    name: "Ravi Sharma",
-    role: "Groom's Father",
-    image: "https://i.pravatar.cc/150?img=11",
+    name: "Ramesh Prasad",
+    role: "दूल्हे के पिता",
+    image: "../1.jpg",
     quote:
-      "The decoration, food, and overall vibe were simply royal. Our guests were truly impressed. Thank you, Army Utsav Hall!",
+      "सजावट, खाना और माहौल सब कुछ राजसी था। मेहमान बहुत खुश हुए। Army Utsav Hall का धन्यवाद।",
   },
   {
-    name: "Pooja Verma",
+    name: "Anjali Singh",
     role: "Bride",
-    image: "https://i.pravatar.cc/150?img=47",
+    image: "../3.jpg",
     quote:
-      "An unforgettable experience! From decor to music, everything was handled with class and elegance.",
+      "शादी का अनुभव बहुत ही खास रहा। डेकोर से लेकर म्यूजिक तक, सब कुछ शानदार था।",
   },
   {
-    name: "Captain Ajay Singh",
+    name: "Rajeev Mishra",
     role: "Retired Army Officer",
-    image: "https://i.pravatar.cc/150?img=32",
+    image: "../2.jpg",
     quote:
-      "Army Utsav Hall maintains the discipline and grandeur you'd expect from anything with 'Army' in the name. 5 stars!",
+      "Army Utsav Hall में अनुशासन और भव्यता की झलक साफ दिखती है। पूरी टीम को 5 स्टार!",
   },
   {
-    name: "Meena Joshi",
-    role: "Bride's Aunt",
-    image: "https://i.pravatar.cc/150?img=38",
-    quote: "बहुत ही शानदार अनुभव था। सभी व्यवस्थाएँ एकदम उत्तम थीं।",
+    name: "Sunita Devi",
+    role: "दुल्हन की मौसी",
+    image: "../4.jpg",
+    quote: "बहुत ही बढ़िया अनुभव था। हर चीज़ समय पर और व्यवस्थित थी।",
   },
   {
-    name: "Ankit Chauhan",
+    name: "Ravi Tiwari",
     role: "Wedding Photographer",
-    image: "https://i.pravatar.cc/150?img=23",
+    image: "../5.jpg",
+    quote: "लाइटिंग और बैकड्रॉप बेहतरीन थे। हर फोटो एक यादगार पल बन गया।",
+  },
+
+  {
+    name: "Suman Patel",
+    role: "Bride's Cousin",
+    image: "../7.jpg",
     quote:
-      "Lighting and backdrop were perfect for capturing timeless wedding moments.",
+      "Everything was so beautifully arranged. I clicked a lot of great pictures!",
   },
   {
-    name: "Seema Rathi",
-    role: "Bride’s Mother",
-    image: "https://i.pravatar.cc/150?img=41",
-    quote: "शादी के हर पल को खास बना दिया Army Utsav Hall ने। धन्यवाद!",
-  },
-  {
-    name: "Rahul Kapoor",
-    role: "Friend of Groom",
-    image: "https://i.pravatar.cc/150?img=12",
-    quote: "DJ and food were next level! Danced all night, ate even more!",
-  },
-  {
-    name: "Harshita Mehta",
+    name: "Manoj Kumar",
     role: "Guest",
-    image: "https://i.pravatar.cc/150?img=26",
-    quote: "Décor was magical and staff was very courteous. Loved the vibe!",
-  },
-  {
-    name: "Ramesh Yadav",
-    role: "Family Member",
-    image: "https://i.pravatar.cc/150?img=33",
-    quote: "इतनी सुंदर व्यवस्था और समय पर सेवा बहुत तारीफ के काबिल है।",
-  },
-  {
-    name: "Dr. Kavita Bansal",
-    role: "Guest Speaker",
-    image: "https://i.pravatar.cc/150?img=18",
+    image: "../6.jpg",
     quote:
-      "Spoke at an engagement ceremony here — the AV setup and ambience were top-notch.",
+      "The hall was clean, the staff was polite, and the vibe was just perfect.",
+  },
+  {
+    name: "Nisha Raj",
+    role: "Friend of Bride",
+    image: "../8.jpg",
+    quote: "We had so much fun dancing! Food and decor were amazing too.",
+  },
+
+  {
+    name: "Meera Yadav",
+    role: "दुल्हन की माँ",
+    image: "../9.jpg",
+    quote: "Army Utsav Hall ने शादी को यादगार बना दिया। दिल से धन्यवाद!",
+  },
+  {
+    name: "Vikram Singh",
+    role: "दूल्हे का दोस्त",
+    image: "../10.jpg",
+    quote: "DJ और खाना दोनों शानदार थे! पूरी रात नाचे और खूब खाया।",
+  },
+  {
+    name: "Kavita Kumari",
+    role: "Guest",
+    image: "../11.jpg",
+    quote: "डेकोरेशन बहुत सुंदर था और स्टाफ बहुत ही विनम्र था।",
+  },
+  {
+    name: "Munna Yadav",
+    role: "परिवार के सदस्य",
+    image: "../12.jpg",
+    quote: "बहुत शानदार व्यवस्था और सेवा समय पर दी गई। सराहनीय प्रयास।",
+  },
+  {
+    name: "Dr. Neelam Pandey",
+    role: "Guest Speaker",
+    image: "../13.jpg",
+    quote:
+      "एंगेजमेंट प्रोग्राम में बोलने का मौका मिला — AV सिस्टम और माहौल लाजवाब था।",
   },
 ];
 
