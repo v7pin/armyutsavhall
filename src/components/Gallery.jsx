@@ -3,21 +3,23 @@ import { useState, useEffect } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import HallGlimpse from "./HallGlimpse.jsx";
 
-// 🧠 Automatically import all category images
+// ✅ Correct imports with eager: true + mapping
 const weddingImages = Object.values(
-  import.meta.glob("/src/assets/gallery/wedding/*.{jpg,jpeg,png}", {
+  import.meta.glob("/src/assets/gallery/wedding/*.{jpg,jpeg,png,webp}", {
     eager: true,
   })
 ).map((mod) => mod.default);
 
 const birthdayImages = Object.values(
-  import.meta.glob("/src/assets/gallery/birthday/*.{jpg,jpeg,png}", {
+  import.meta.glob("/src/assets/gallery/birthday/*.{jpg,jpeg,png,webp}", {
     eager: true,
   })
 ).map((mod) => mod.default);
 
 const ringImages = Object.values(
-  import.meta.glob("/src/assets/gallery/ring/*.{jpg,jpeg,png}", { eager: true })
+  import.meta.glob("/src/assets/gallery/ring/*.{jpg,jpeg,png,webp}", {
+    eager: true,
+  })
 ).map((mod) => mod.default);
 
 const categories = {
@@ -77,7 +79,7 @@ export default function Gallery({ language = "en" }) {
   const t = translations[language];
 
   useEffect(() => {
-    setShowExtra(false); // Reset toggle when category changes
+    setShowExtra(false);
   }, [selectedCategory]);
 
   const maxVisible = 6;
@@ -142,6 +144,8 @@ export default function Gallery({ language = "en" }) {
             <motion.img
               src={src}
               alt={`Gallery ${idx + 1}`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-64 object-cover transform transition duration-700 ease-in-out group-hover:scale-110 group-hover:brightness-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#3b0a1e]/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-3xl border-2 border-yellow-300"></div>
@@ -162,7 +166,7 @@ export default function Gallery({ language = "en" }) {
         </div>
       )}
 
-      {/* Extra Images Section */}
+      {/* Extra Images */}
       {showExtra && (
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto mt-8 px-4"
@@ -178,6 +182,8 @@ export default function Gallery({ language = "en" }) {
               <img
                 src={src}
                 alt={`Gallery extra ${idx + 1}`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 object-cover transform transition duration-700 ease-in-out group-hover:scale-110 group-hover:brightness-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#3b0a1e]/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-3xl border-2 border-yellow-300"></div>
